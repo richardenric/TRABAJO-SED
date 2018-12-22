@@ -1,0 +1,36 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity fc is
+port(x: in std_logic_vector(3 downto 0);
+z: out std_logic_vector(7 downto 0)
+);
+end fc;
+
+architecture arq of fc is
+begin
+process(x)
+begin
+case x is
+   when "1111" => z<="00011000"; --0
+   when "1110" => z<="11011110"; --1
+   when "1101" => z<="00110100"; --2
+   when "1100" => z<="10010100"; --3
+   when "1011" => z<="11010010"; --4
+   when "1010" => z<="10010001"; --5
+   when "1001" => z<="00010011"; --6
+   when "1000" => z<="11011100"; --7
+   when "0111" => z<="00010000"; --8
+   when "0110" => z<="11010000"; --9
+   when "0101" => z<="01000000"; --A
+   when "0100" => z<="00000000"; --B
+   when "0011" => z<="00101001"; --C
+   when "0010" => z<="00001000"; --D
+   when "0001" => z<="00100001"; --E
+   when "0000" => z<="01100001"; --F
+   when others => z<="00000000";
+end case;
+end process;
+end arq;
